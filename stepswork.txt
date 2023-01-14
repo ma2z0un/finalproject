@@ -48,3 +48,6 @@
     git checkout master   move to master
     git checkout tags/v1
     git push origin v1
+    create branch
+        git checkout -b v2
+        git status   check the status for changed
