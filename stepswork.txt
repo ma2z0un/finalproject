@@ -1,0 +1,50 @@
+1-download theme admin from this link dashboard
+    https://drive.google.com/file/d/1HRKYrwx22vz7lea-9WTYKYhx_MpiT6K1/view
+2- link of website index
+3-laravel ui from    composer require laravel/ui  with php artisan ui bootstrap --auth
+4- put Route::prefix('admin')   in  RouteServiceProvider
+5-make table admin with model lik user
+6-make DashboardController and LoginController
+7-add in config auth guard admin 
+8- add in Authenticate Middleware
+            if (Request::is('admin*')) {
+                
+                return route('get.admin.login');
+            }
+                        else{
+                return route('login');
+            }
+9-add RedirectIfAuthenticated in Middleware 
+    if (Auth::guard($guard)->check()) {
+                if ($guard=='admin')
+                return redirect(RouteServiceProvider::ADMIN);
+                else
+                return redirect(RouteServiceProvider::HOME);
+            }
+10- create table languages and main categories
+11- create route of languafes and controllers and view for add delete update destroy
+12- make helper for active languages
+    create folder helpers and create file general.php
+13- go to composer.json and go to auto load
+    ,"files":[
+            "App/Helpers/General.php"
+        ]
+        composer dump-autoload
+14-create maincategories folers in view and controller and make model
+15-create vendors folder folers in view and controller and make model
+16-make google maps with search box
+17-go to website https://medium.com/@jaouad_45834/mail-notification-laravel-2eaeed3e8e02
+18-php artisan make:notification VendorCreated
+19-make change active for main category
+20- make observe for unactive main catigory to make unactive for allvendors
+    php artisan make:observe MaincategoryObserve --model=MainCategory
+21- work with git hub
+    git tag -d v1    remove tags
+    git push origin --delete v1 remove tag version 1
+    git tag -a v1 -m "from vedio 1 to video 43"
+    git tag
+    git commit -a -m="new version"
+    git branch   take the branch
+    git checkout master   move to master
+    git checkout tags/v1
+    git push origin v1
